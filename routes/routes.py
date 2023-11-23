@@ -34,7 +34,7 @@ last_prices = {
 
 async def binance_websocket_task(websocket, symbol, data_dict):
     try:
-        binance_endpoint = f"wss://stream.binance.com:9443/ws/{symbol.lower()}@trade"
+        binance_endpoint = f"wss://fstream.binance.com:443/ws/{symbol.lower()}@trade"
         async with websockets.connect(binance_endpoint) as ws:
             while True:
                 try:
@@ -224,4 +224,3 @@ async def convert_crypto(source_crypto: str, amount: float, target_crypto: str):
         return JSONResponse({'error':'An error occured'},status_code=400)
 
 ################################### API END ######################################
-
